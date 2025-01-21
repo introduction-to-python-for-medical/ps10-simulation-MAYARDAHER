@@ -8,7 +8,15 @@ def spread_fire(grid):
     for i in range(grid_size-1):
         for j in range(grid_size-1):
             if grid[i][j] == 1:
-                neighbors = [grid[i-1][j],grid[i+1][j],grid[i][j-1],grid[i][j+1]]
+                neighbors = []
+                if i > 0:
+                    neighbors.append(grid[i - 1][j])
+                if i < grid_size - 1:
+                    neighbors.append(grid[i + 1][j])
+                if j > 0:
+                    neighbors.append(grid[i][j - 1])
+                if j < grid_size - 1:
+                    neighbors.append(grid[i][j + 1])
                 if 2 in neighbors:
                     update_grid[i][j] = 2
 
